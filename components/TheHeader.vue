@@ -4,6 +4,22 @@
       <h1 class="header__company__title">MDLR</h1>
       <span class="header__company__name">Online Store</span>
     </div>
+    <nav class="header__navigation">
+      <ul class="header__navigation__list">
+        <nuxt-link to="/">
+          <li class="header__navigation__list__list-item">Home</li>
+        </nuxt-link>
+        <nuxt-link to="/">
+          <li class="header__navigation__list__list-item">Categorias</li>
+        </nuxt-link>
+        <nuxt-link to="/">
+          <li class="header__navigation__list__list-item">Contato</li>
+        </nuxt-link>
+        <nuxt-link to="/">
+          <li class="header__navigation__list__list-item">Login</li>
+        </nuxt-link>
+      </ul>
+    </nav>
     <div class="header__actions">
       <button class="header__actions header__actions--cart">
         <span class="material-icons icon"> shopping_cart </span>
@@ -17,6 +33,9 @@
 </template>
 
 <style lang="scss" scoped>
+a.nuxt-link-active {
+  all: unset;
+}
 .header {
   align-items: center;
   background-color: $main-white;
@@ -25,14 +44,44 @@
   height: 6rem;
   font-family: 'Space Mono';
   justify-content: space-between;
+  padding: 0 2.4rem;
   position: sticky;
 
   &__company {
     align-items: center;
     display: flex;
+
     &__title {
       color: $font-color-black;
+      font-size: 2.8rem;
       font-weight: 700;
+    }
+
+    &__name {
+      font-size: 1.6rem;
+      font-weight: 400;
+      margin-left: 1.6rem;
+    }
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: flex-end;
+    width: 78%;
+    &__list {
+      display: flex;
+
+      &__list-item {
+        font-size: 1.6rem;
+        list-style-type: none;
+        cursor: pointer;
+        padding: 2rem;
+        transition: all 0.3s;
+
+        &:hover {
+          color: grey;
+        }
+      }
     }
   }
 
@@ -60,30 +109,20 @@
     }
 
     &--menu {
-      all: unset;
-      transform: rotateY(180deg);
-      width: 6rem;
+      display: none;
     }
   }
 
   @media screen and (max-width: $md) {
-    padding: 0 2.4rem;
-
-    &__company {
-      &__title {
-        font-size: 2.8rem;
-      }
-
-      &__name {
-        font-size: 1.6rem;
-        font-weight: 400;
-        margin-left: 1.6rem;
-      }
-    }
-
     &__actions {
       .icon {
         font-size: 2.4rem;
+      }
+
+      &--menu {
+        all: unset;
+        transform: rotateY(180deg);
+        width: 6rem;
       }
     }
   }
