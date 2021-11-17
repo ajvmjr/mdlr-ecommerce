@@ -114,6 +114,10 @@ a.nuxt-link-active {
   }
 
   @media screen and (max-width: $md) {
+    &__navigation {
+      display: none;
+    }
+
     &__actions {
       .icon {
         font-size: 2.4rem;
