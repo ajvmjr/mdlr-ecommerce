@@ -66,8 +66,9 @@
     }
   }
 
-  @media screen and (max-width: $sm) {
+  @media screen and (max-width: $md) {
     padding: 0 2.4rem;
+
     &__company {
       &__title {
         font-size: 2.8rem;
@@ -79,14 +80,18 @@
         margin-left: 1.6rem;
       }
     }
+
+    &__actions {
+      .icon {
+        font-size: 2.4rem;
+      }
+    }
   }
 
   @media screen and (max-width: $xs) {
     &__actions {
-      &__cart {
-        .icon {
-          font-size: 2.1rem;
-        }
+      .icon {
+        font-size: 2.2rem;
       }
     }
 
