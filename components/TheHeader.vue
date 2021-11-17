@@ -1,7 +1,8 @@
 <template>
   <header class="header">
-    <div>
-      <h1 class="header__title">MDLR</h1>
+    <div class="header__company">
+      <h1 class="header__company__title">MDLR</h1>
+      <span class="header__company__name">Online Store</span>
     </div>
     <div class="header__actions">
       <button class="header__actions header__actions--cart">
@@ -22,13 +23,17 @@
   border-bottom: 1px solid #dfe0e2;
   display: flex;
   height: 6rem;
+  font-family: 'Space Mono';
   justify-content: space-between;
   position: sticky;
 
-  &__title {
-    color: $font-color-black;
-    font-family: 'Space Mono';
-    font-weight: 700;
+  &__company {
+    align-items: center;
+    display: flex;
+    &__title {
+      color: $font-color-black;
+      font-weight: 700;
+    }
   }
 
   &__actions {
@@ -48,7 +53,7 @@
         color: $main-white;
         display: flex;
         height: 1.8rem;
-        font-family: 'Space Mono';
+
         justify-content: center;
         width: 1.8rem;
       }
@@ -61,9 +66,22 @@
     }
   }
 
-  @media screen and (max-width: $xs) {
+  @media screen and (max-width: $sm) {
     padding: 0 2.4rem;
+    &__company {
+      &__title {
+        font-size: 2.8rem;
+      }
 
+      &__name {
+        font-size: 1.6rem;
+        font-weight: 400;
+        margin-left: 1.6rem;
+      }
+    }
+  }
+
+  @media screen and (max-width: $xs) {
     &__actions {
       &__cart {
         .icon {
@@ -72,9 +90,14 @@
       }
     }
 
-    &__title {
-      font-size: 2.8rem;
-      line-height: 4.4rem;
+    &__company {
+      &__title {
+        line-height: 4.4rem;
+      }
+
+      &__name {
+        display: none;
+      }
     }
   }
 }
