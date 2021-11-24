@@ -42,10 +42,11 @@ a.nuxt-link-active {
   border-bottom: 1px solid #dfe0e2;
   display: flex;
   height: 6rem;
-  font-family: 'Space Mono';
+  font-family: $main-font-family;
   justify-content: space-between;
   padding: 0 2.4rem;
   position: sticky;
+  z-index: 0;
 
   &__company {
     align-items: center;
