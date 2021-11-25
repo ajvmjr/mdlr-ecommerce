@@ -3,7 +3,9 @@
     <div class="cart">
       <div class="cart__header">
         <h2 class="car__header__title">Seu carrinho</h2>
-        <span class="material-icons"> close </span>
+        <button class="btn" @click="closeCart">
+          <span class="material-icons"> close </span>
+        </button>
       </div>
       <div class="cart__msg">Nenhum item encontrado.</div>
     </div>
@@ -11,10 +13,20 @@
 </template>
 
 <script>
-export default {}
+export default {
+  methods: {
+    closeCart() {
+      this.$store.dispatch('closeCart')
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped>
+.btn {
+  all: unset;
+  cursor: pointer;
+}
 .overlay {
   background-color: hsla(228, 5%, 88%, 0.8);
   display: flex;

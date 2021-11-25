@@ -21,7 +21,7 @@
       </ul>
     </nav>
     <div class="header__actions">
-      <button class="header__actions header__actions--cart">
+      <button class="header__actions header__actions--cart" @click="openCart">
         <span class="material-icons icon"> shopping_cart </span>
         <div class="header__actions--cart__counter">0</div>
       </button>
@@ -31,6 +31,21 @@
     </div>
   </header>
 </template>
+
+<script>
+import { mapGetters } from 'vuex'
+
+export default {
+  computed: {
+    ...mapGetters(['showCart']),
+  },
+  methods: {
+    openCart() {
+      this.$store.dispatch('openCart')
+    },
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 a.nuxt-link-active {
@@ -88,6 +103,7 @@ a.nuxt-link-active {
 
   &__actions {
     display: flex;
+    cursor: pointer;
 
     &--cart {
       all: unset;
