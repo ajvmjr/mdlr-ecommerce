@@ -1,7 +1,9 @@
 <template>
   <div>
     <TheHeader />
-    <TheCart v-if="showCart" />
+    <transition name="slide-fade">
+      <TheCart v-if="showCart" />
+    </transition>
     <Nuxt />
   </div>
 </template>
@@ -19,3 +21,14 @@ export default {
   },
 }
 </script>
+
+<style lang="scss" scoped>
+.slide-fade-leave-active {
+  transition: all 0.3s;
+}
+.slide-fade-enter,
+.slide-fade-leave-to {
+  opacity: 0;
+  transform: translateX(5rem);
+}
+</style>

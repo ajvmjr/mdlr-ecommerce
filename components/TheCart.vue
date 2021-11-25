@@ -40,6 +40,7 @@ export default {
   z-index: 2;
 }
 .cart {
+  animation: moveIn 0.4s;
   background: $secondary-white;
   font-family: $main-font-family;
   max-height: 100%;
@@ -86,6 +87,18 @@ export default {
         font-size: 2.8rem;
       }
     }
+  }
+}
+
+@keyframes moveIn {
+  0% {
+    opacity: 0;
+    transform: translateX(5rem);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 </style>
