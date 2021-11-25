@@ -1,7 +1,13 @@
 <template>
-  <div></div>
+  <div>
+    <TheLatestCollections />
+  </div>
 </template>
 
 <script>
-export default {}
+import TheLatestCollections from '@/components/TheLatestCollections'
+
+export default {
+  components: { TheLatestCollections },
+}
 </script>

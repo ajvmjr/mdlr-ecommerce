@@ -48,7 +48,7 @@ export default {
 
   &__header {
     align-items: center;
-    border-bottom: 1px solid #dfe0e2;
+    border-bottom: 1px solid $main-border-color;
     display: flex;
     height: 6rem;
     justify-content: space-between;
