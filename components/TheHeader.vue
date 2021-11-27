@@ -33,7 +33,7 @@
 </template>
 
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex';
 
 export default {
   computed: {
@@ -41,10 +41,10 @@ export default {
   },
   methods: {
     openCart() {
-      this.$store.dispatch('openCart')
+      this.$store.dispatch('openCart');
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -54,7 +54,7 @@ a.nuxt-link-active {
 .header {
   align-items: center;
   background-color: $main-white;
-  border-bottom: 1px solid #dfe0e2;
+  border-bottom: 1px solid $main-border-color;
   display: flex;
   height: 6rem;
   font-family: $main-font-family;

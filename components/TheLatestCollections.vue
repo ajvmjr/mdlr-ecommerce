@@ -87,9 +87,15 @@ export default {
   @media screen and (min-width: $xl) {
     display: flex;
     flex-direction: row-reverse;
-    height: 80vh;
+    height: 75vh;
+
+    &__thumbnail {
+      min-width: 50%;
+    }
 
     &__content {
+      align-items: flex-start;
+      border-right: 1px solid $main-border-color;
       justify-content: center;
       padding: 0 14rem 0 7.2rem;
 
@@ -99,6 +105,12 @@ export default {
 
       h2 {
         font-size: 11.2rem;
+        line-height: 12rem;
+        text-align: left;
+      }
+
+      p {
+        margin-top: 1rem;
         text-align: left;
       }
     }
