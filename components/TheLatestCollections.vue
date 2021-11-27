@@ -14,11 +14,11 @@
 </template>
 
 <script>
-import AppButtonVue from './AppButton'
+import AppButtonVue from './AppButton';
 
 export default {
   components: { AppButtonVue },
-}
+};
 </script>
 
 <style lang="scss" scoped>
@@ -59,6 +59,48 @@ export default {
     p {
       font-size: 1.6rem;
       margin-bottom: 2.5rem;
+    }
+  }
+
+  @media screen and (min-width: $sm) {
+    h3 {
+      font-size: 2.4rem;
+    }
+
+    h2 {
+      font-size: 7rem;
+      margin: 0;
+    }
+  }
+
+  @media screen and (min-width: $md) {
+    h2 {
+      font-size: 7.7rem;
+      margin: 0;
+    }
+
+    p {
+      margin-bottom: 3rem;
+    }
+  }
+
+  @media screen and (min-width: $xl) {
+    display: flex;
+    flex-direction: row-reverse;
+    height: 80vh;
+
+    &__content {
+      justify-content: center;
+      padding: 0 14rem 0 7.2rem;
+
+      h3 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 11.2rem;
+        text-align: left;
+      }
     }
   }
 }
