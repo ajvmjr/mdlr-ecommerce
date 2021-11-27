@@ -23,6 +23,7 @@
   text-transform: uppercase;
 }
 .about {
+  border-bottom: 1px solid $main-border-color;
   color: $font-color-black;
   font-family: $main-font-family;
   padding: 4rem 16% 6rem;
