@@ -32,6 +32,10 @@ a.nuxt-link-active {
   width: 100%;
   transition: all 0.2s ease-in-out;
 
+  &:hover {
+    transform: scale(1.01);
+  }
+
   &__image {
     width: 100%;
 
