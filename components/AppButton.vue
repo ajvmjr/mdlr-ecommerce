@@ -45,10 +45,16 @@ button {
   background: $main-black;
   border: none;
   color: $secondary-white;
+  cursor: pointer;
   display: inline-block;
   font-size: 1.4rem;
   font-family: $main-font-family;
   font-weight: 400;
   text-align: center;
+  transition: all 0.3s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 </style>
