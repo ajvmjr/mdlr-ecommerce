@@ -14,9 +14,17 @@
 
 <script>
 export default {
+  mounted() {
+    this.setCloseByEscKey();
+  },
   methods: {
     closeCart() {
       this.$store.dispatch('closeCart');
+    },
+    setCloseByEscKey() {
+      window.addEventListener('keyup', ({ key }) => {
+        if (key === 'Escape') this.closeCart();
+      });
     },
   },
 };
