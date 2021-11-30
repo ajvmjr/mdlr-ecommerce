@@ -116,6 +116,7 @@ a.nuxt-link-active {
     }
 
     &__social-medias {
+      cursor: pointer;
       width: 20%;
     }
   }
