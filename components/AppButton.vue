@@ -1,5 +1,7 @@
 <template>
-  <button :style="{ padding }" @click="onClick">{{ text }}</button>
+  <button :style="{ height, width }" :type="type" @click="onClick">
+    {{ text }}
+  </button>
 </template>
 
 <script>
@@ -14,13 +16,28 @@ export default {
       required: false,
       default: '12px 20px',
     },
+    height: {
+      type: String,
+      required: false,
+      default: '100px',
+    },
+    width: {
+      type: String,
+      required: false,
+      default: '100px',
+    },
+    type: {
+      type: String,
+      required: false,
+      default: 'text',
+    },
   },
   methods: {
     onClick() {
-      this.$emit('click')
+      this.$emit('click');
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>

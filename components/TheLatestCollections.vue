@@ -8,7 +8,7 @@
         Conheça os novos Casacos, Camisetas, Calças, Shorts e Acessórios que a
         <b>MODULAR</b> tem a oferecer.
       </p>
-      <AppButtonVue text="Ver coleção" />
+      <AppButtonVue text="Ver coleção" height="40px" width="200px" />
     </div>
   </div>
 </template>
