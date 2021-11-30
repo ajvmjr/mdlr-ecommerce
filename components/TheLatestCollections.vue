@@ -97,14 +97,13 @@ export default {
       align-items: flex-start;
       border-right: 1px solid $main-border-color;
       justify-content: center;
-      padding: 0 14rem 0 7.2rem;
 
       h3 {
         font-size: 2.4rem;
       }
 
       h2 {
-        font-size: 11.2rem;
+        font-size: 8.5rem;
         line-height: 12rem;
         text-align: left;
       }
@@ -112,6 +111,16 @@ export default {
       p {
         margin-top: 1rem;
         text-align: left;
+      }
+    }
+  }
+
+  @media screen and (min-width: $xxl) {
+    &__content {
+      padding: 0 14rem 0 7.2rem;
+
+      h2 {
+        font-size: 11.2rem;
       }
     }
   }
