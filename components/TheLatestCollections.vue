@@ -37,7 +37,6 @@ export default {
   }
 
   &__content {
-    animation: moveRight 0.5s ease-in-out;
     align-items: center;
     display: flex;
     color: $font-color-black;
@@ -45,6 +44,10 @@ export default {
     padding: 3.2rem 2.4rem 6rem;
     text-align: center;
     width: 100%;
+
+    & > * {
+      animation: moveRight 0.5s ease-in-out;
+    }
 
     h3 {
       font-size: 1.6rem;
