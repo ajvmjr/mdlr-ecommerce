@@ -37,6 +37,7 @@ export default {
   }
 
   &__content {
+    animation: moveRight 0.5s ease-in-out;
     align-items: center;
     display: flex;
     color: $font-color-black;
@@ -123,6 +124,22 @@ export default {
         font-size: 11.2rem;
       }
     }
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-10rem);
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 }
 </style>
