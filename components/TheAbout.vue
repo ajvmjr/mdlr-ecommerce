@@ -29,6 +29,10 @@
   padding: 4rem 16% 6rem;
   text-align: center;
 
+  & > * {
+    animation: moveTop 1s ease-in-out;
+  }
+
   h2 {
     font-size: 3.8rem;
     margin-bottom: 2.4rem;
@@ -38,6 +42,22 @@
     font-size: 1.4rem;
     line-height: 2.4rem;
     margin-bottom: 1rem;
+  }
+}
+
+@keyframes moveTop {
+  0% {
+    opacity: 0;
+    transform: translateY(10rem);
+  }
+
+  80% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 </style>
