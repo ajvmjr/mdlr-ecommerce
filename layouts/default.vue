@@ -5,6 +5,8 @@
       <TheCart v-if="showCart" />
     </transition>
     <Nuxt />
+    <TheSubscribe />
+    <TheFooter />
   </div>
 </template>
 
@@ -13,9 +15,11 @@ import { mapGetters } from 'vuex';
 
 import TheHeader from '~/components/TheHeader';
 import TheCart from '@/components/TheCart';
+import TheSubscribe from '@/components/TheSubscribe';
+import TheFooter from '@/components/TheFooter';
 
 export default {
-  components: { TheHeader, TheCart },
+  components: { TheHeader, TheCart, TheSubscribe, TheFooter },
   computed: {
     ...mapGetters(['showCart']),
   },
