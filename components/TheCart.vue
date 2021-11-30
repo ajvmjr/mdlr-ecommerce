@@ -16,10 +16,10 @@
 export default {
   methods: {
     closeCart() {
-      this.$store.dispatch('closeCart')
+      this.$store.dispatch('closeCart');
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
