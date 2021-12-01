@@ -25,6 +25,7 @@ export default {
 
 <style lang="scss" scoped>
 .products {
+  border-bottom: 1px solid $main-border-color;
   height: auto;
   width: 100%;
   min-width: 100%;
