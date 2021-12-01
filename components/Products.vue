@@ -8,10 +8,17 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import ProductsCard from '@/components/ProductsCard';
 
 export default {
   components: { ProductsCard },
+  computed: {
+    ...mapGetters(['products']),
+  },
+  mounted() {
+    this.$store.dispatch('getProducts');
+  },
 };
 </script>
 
