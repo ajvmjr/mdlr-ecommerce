@@ -20,9 +20,6 @@ export default {
   computed: {
     ...mapGetters(['products']),
   },
-  mounted() {
-    this.$store.dispatch('getProducts');
-  },
 };
 </script>
 

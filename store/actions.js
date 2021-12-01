@@ -5,8 +5,12 @@ export default {
   closeCart({ commit }) {
     commit('setShowCart', false)
   },
-  async getProducts({ commit }) {
-    const data  = await this.$axios.$get('/products')
-    commit('setProducts', data)
-  }
+  async nuxtServerInit({ commit }, context) {
+    try {
+      const data = await this.$axios.$get('/products')
+      commit('setProducts', data)
+    } catch (e) {
+      context.error(e)
+    }
+  },
 }
