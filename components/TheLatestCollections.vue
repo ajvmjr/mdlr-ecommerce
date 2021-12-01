@@ -92,6 +92,7 @@ export default {
     display: flex;
     flex-direction: row-reverse;
     height: 75vh;
+    width: 100%;
 
     &__thumbnail {
       min-width: 50%;
