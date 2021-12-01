@@ -1,5 +1,5 @@
 <template>
-  <router-link to="/">
+  <router-link to="/product/2">
     <div class="card">
       <div class="card__image">
         <img src="../assets/images/hero.jpg" alt="product image" />
@@ -13,7 +13,7 @@
 </template>
 
 <style lang="scss" scoped>
-a.nuxt-link-active {
+a {
   text-decoration: none;
 
   @media screen and (min-width: $md) {
