@@ -1,16 +1,52 @@
 <template>
-  <router-link to="/product/2">
+  <router-link :to="productPath">
     <div class="card">
       <div class="card__image">
-        <img src="../assets/images/hero.jpg" alt="product image" />
+        <!-- <img
+          src="../assets/images/hero.jpg"
+          alt="product image"
+          loading="lazy"
+        /> -->
+        <img :src="productImage" alt="product image" loading="lazy" />
       </div>
       <div class="card__info">
-        <p class="card__info__title">Lucien Stripe Knit Volley Short</p>
-        <span class="card__info__price">$ 39.00</span>
+        <p class="card__info__title">{{ title }}</p>
+        <span class="card__info__price">$ {{ price }}</span>
       </div>
     </div>
   </router-link>
 </template>
+
+<script>
+export default {
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    productPath() {
+      return `/product/${this.id}`;
+    },
+    productImage() {
+      return `${process.env.BASE_URL}files/${this.image}`;
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 a {
