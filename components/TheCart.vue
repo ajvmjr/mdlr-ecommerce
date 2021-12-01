@@ -7,13 +7,17 @@
           <span class="material-icons"> close </span>
         </button>
       </div>
-      <div class="cart__msg">Nenhum item encontrado.</div>
+      <div v-if="false" class="cart__msg">Nenhum item encontrado.</div>
+      <CartItem v-if="true" />
     </div>
   </div>
 </template>
 
 <script>
+import CartItem from './CartItem';
+
 export default {
+  components: { CartItem },
   mounted() {
     this.setCloseByEscKey();
   },
@@ -52,7 +56,7 @@ export default {
   background: $secondary-white;
   font-family: $main-font-family;
   max-height: 100%;
-  width: 25%;
+  width: 30%;
 
   &__header {
     align-items: center;
@@ -70,6 +74,10 @@ export default {
     height: 100vh;
     justify-content: center;
     width: 100%;
+  }
+
+  @media screen and (max-width: $xl) {
+    width: 40%;
   }
 
   @media screen and (max-width: $md) {
