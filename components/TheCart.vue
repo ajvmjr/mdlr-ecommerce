@@ -39,9 +39,9 @@ export default {
   background-color: hsla(228, 5%, 88%, 0.8);
   display: flex;
   justify-content: flex-end;
-  min-height: 100%;
+  min-height: 100vh;
   min-width: 100%;
-  position: absolute;
+  position: fixed;
   opacity: 1;
   top: 0;
   transition: opacity 300ms ease 0s;
