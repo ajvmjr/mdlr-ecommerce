@@ -1,11 +1,11 @@
 <template>
   <div class="product">
     <div class="product__thumbnail">
-      <img src="../../../assets/images/hero.jpg" alt="product image" />
+      <img :src="productImage" alt="product image" />
     </div>
     <div class="product__info">
-      <h2 class="product__info__title">Lucien Stripe Knit Volley Short</h2>
-      <span class="product__info__price">$39.00</span>
+      <h2 class="product__info__title">{{ product.name }}</h2>
+      <span class="product__info__price">{{ product.price }}</span>
       <p class="product__info__description">
         Easy pull on + go short in an allover vertical stripe pattern. Soft
         textured cotton is cut in a silhouette that hits above the knee with a
@@ -29,10 +29,22 @@ import ProductsQuantity from '@/components/ProductsQuantity';
 
 export default {
   components: { AppButton, ProductsSize, ProductsQuantity },
+
+  async asyncData({ params, $axios }) {
+    const product = await $axios.$get(`products/${params.id}`);
+    return { product };
+  },
+
   data() {
     return {
       chosenSize: '',
     };
+  },
+
+  computed: {
+    productImage() {
+      return `${process.env.BASE_URL}files/${this.product.image}`;
+    },
   },
 };
 </script>
