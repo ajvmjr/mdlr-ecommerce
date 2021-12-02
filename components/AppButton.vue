@@ -3,6 +3,7 @@
     :style="{ height, width }"
     :type="type"
     :disabled="disabled"
+    :class="!hasHover ? 'noHoverEffect' : ''"
     @click="onClick"
   >
     {{ text }}
@@ -41,6 +42,11 @@ export default {
       required: false,
       default: false,
     },
+    hasHover: {
+      type: Boolean,
+      required: false,
+      default: true,
+    },
   },
   methods: {
     onClick() {
@@ -74,6 +80,12 @@ button {
     &:hover {
       transform: scale(1);
     }
+  }
+}
+
+.noHoverEffect {
+  &:hover {
+    transform: scale(1);
   }
 }
 </style>

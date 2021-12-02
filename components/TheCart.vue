@@ -29,6 +29,7 @@
           text="Prosseguir para o pagamento"
           height="44px"
           width="100%"
+          :has-hover="false"
         />
       </div>
     </div>
