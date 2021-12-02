@@ -17,5 +17,9 @@ export default {
     TheAbout,
     Products,
   },
+
+  mounted() {
+    this.$store.dispatch('getCart');
+  },
 };
 </script>

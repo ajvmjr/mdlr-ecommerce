@@ -57,6 +57,10 @@ export default {
     },
   },
 
+  mounted() {
+    this.$store.dispatch('getCart');
+  },
+
   methods: {
     handleAddToCart() {
       const product = {
