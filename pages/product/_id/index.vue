@@ -15,14 +15,22 @@
       </p>
       <div class="product__size-quantity">
         <ProductsSize v-model="chosenSize" />
-        <ProductsQuantity />
+        <ProductsQuantity v-model="quantity" />
       </div>
-      <AppButton text="Adicionar ao carrinho" height="35px" width="200px" />
+      <AppButton
+        text="Adicionar ao carrinho"
+        height="35px"
+        width="200px"
+        :disabled="disableButton"
+        @click="handleAddToCart"
+      />
     </div>
   </div>
 </template>
 
 <script>
+import { getStorage, setStorage } from '@/utils/storage';
+
 import AppButton from '@/components/AppButton';
 import ProductsSize from '@/components/ProductsSize';
 import ProductsQuantity from '@/components/ProductsQuantity';
@@ -38,12 +46,42 @@ export default {
   data() {
     return {
       chosenSize: '',
+      quantity: '1',
     };
   },
 
   computed: {
     productImage() {
       return `${process.env.BASE_URL}files/${this.product.image}`;
+    },
+    disableButton() {
+      return Boolean(!this.chosenSize);
+    },
+  },
+
+  methods: {
+    handleAddToCart() {
+      const product = {
+        ...this.product,
+        size: this.chosenSize,
+        quantity: this.quantity,
+      };
+
+      const cartExists = getStorage('products');
+      let cartProducts = [];
+
+      if (!cartExists) {
+        cartProducts = [product];
+        setStorage('products', cartProducts);
+
+        return;
+      }
+
+      cartProducts = getStorage('products');
+
+      cartProducts.push(product);
+
+      setStorage('products', cartProducts);
     },
   },
 };

@@ -7,19 +7,42 @@
           <span class="material-icons"> close </span>
         </button>
       </div>
-      <div v-if="false" class="cart__msg">Nenhum item encontrado.</div>
-      <CartItem v-if="true" />
+      <div v-if="hasItems">
+        <CartItem
+          v-for="product in cartItems"
+          :id="product.id"
+          :key="product.id"
+          :title="product.name"
+          :image="product.image"
+          :price="product.price"
+          :size="product.size"
+          :quantity="product.quantity"
+        />
+      </div>
+      <div v-else class="cart__msg">Nenhum item encontrado.</div>
     </div>
   </div>
 </template>
 
 <script>
 import CartItem from './CartItem';
+import { getStorage } from '@/utils/storage';
 
 export default {
   components: { CartItem },
+  data() {
+    return {
+      cartItems: [],
+    };
+  },
+  computed: {
+    hasItems() {
+      return this.cartItems && this.cartItems.length > 0;
+    },
+  },
   mounted() {
     this.setCloseByEscKey();
+    this.getCartItems();
   },
   methods: {
     closeCart() {
@@ -29,6 +52,9 @@ export default {
       window.addEventListener('keyup', ({ key }) => {
         if (key === 'Escape') this.closeCart();
       });
+    },
+    getCartItems() {
+      this.cartItems = getStorage('products');
     },
   },
 };

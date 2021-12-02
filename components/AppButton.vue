@@ -1,5 +1,10 @@
 <template>
-  <button :style="{ height, width }" :type="type" @click="onClick">
+  <button
+    :style="{ height, width }"
+    :type="type"
+    :disabled="disabled"
+    @click="onClick"
+  >
     {{ text }}
   </button>
 </template>
@@ -30,6 +35,11 @@ export default {
       type: String,
       required: false,
       default: 'text',
+    },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
   methods: {

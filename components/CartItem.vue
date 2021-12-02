@@ -1,19 +1,55 @@
 <template>
   <div class="cart-item">
     <div class="cart-item__image">
-      <img src="../assets/images/hero.jpg" alt="product" />
+      <img :src="productImage" alt="product" loading="lazy" />
     </div>
     <div class="cart-item__info">
       <h2 class="cart-item__info__title">
-        Long Sleeve Patterned Flannel Shirt
+        {{ title }}
       </h2>
-      <p class="cart-item__info__price">$ 39.00</p>
-      <p class="cart-item__info__size">Size: S</p>
+      <p class="cart-item__info__price">$ {{ price }}</p>
+      <p class="cart-item__info__size">Size: {{ size }}</p>
       <span>Remover</span>
     </div>
-    <div class="cart-item__quantity">1</div>
+    <div class="cart-item__quantity">{{ quantity }}</div>
   </div>
 </template>
+
+<script>
+export default {
+  props: {
+    id: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
+    },
+    image: {
+      type: String,
+      required: true,
+    },
+    price: {
+      type: String,
+      required: true,
+    },
+    size: {
+      type: String,
+      required: true,
+    },
+    quantity: {
+      type: String,
+      required: true,
+    },
+  },
+  computed: {
+    productImage() {
+      return `${process.env.BASE_URL}files/${this.image}`;
+    },
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 .cart-item {
