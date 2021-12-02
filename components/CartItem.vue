@@ -9,7 +9,9 @@
       </h2>
       <p class="cart-item__info__price">$ {{ price }}</p>
       <p class="cart-item__info__size">Size: {{ size }}</p>
-      <span>Remover</span>
+      <button class="cart-item__info__btn">
+        <span>Remover</span>
+      </button>
     </div>
     <div class="cart-item__quantity">{{ quantity }}</div>
   </div>
@@ -88,6 +90,12 @@ export default {
 
     &__title {
       font-weight: 700;
+    }
+
+    &__btn {
+      all: unset;
+      cursor: pointer;
+      margin-top: 1rem;
     }
 
     span {

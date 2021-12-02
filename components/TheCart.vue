@@ -9,7 +9,7 @@
       </div>
       <div v-if="hasItems">
         <CartItem
-          v-for="product in cartItems"
+          v-for="product in cart"
           :id="product.id"
           :key="product.id"
           :title="product.name"
@@ -25,19 +25,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import CartItem from './CartItem';
-import { getStorage } from '@/utils/storage';
 
 export default {
   components: { CartItem },
-  data() {
-    return {
-      cartItems: [],
-    };
-  },
   computed: {
+    ...mapGetters(['cart']),
+
     hasItems() {
-      return this.cartItems && this.cartItems.length > 0;
+      return this.cart && this.cart.length > 0;
     },
   },
   mounted() {
@@ -54,7 +51,7 @@ export default {
       });
     },
     getCartItems() {
-      this.cartItems = getStorage('products');
+      this.$store.dispatch('getCart');
     },
   },
 };
