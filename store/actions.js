@@ -9,9 +9,20 @@ export default {
     commit('setShowCart', false)
   },
 
-  getCart({ commit }) {
+  getCart({ commit, dispatch }) {
     const cartItems = getStorage('products')
     commit('setCart', cartItems)
+    dispatch('calculateCartTotal')
+  },
+
+  calculateCartTotal({ commit, rootState }) {
+    const cart = rootState.cart;
+
+    const total = cart.reduce((acc, product) => {
+      return acc + (Number(product.price) * Number(product.quantity))
+    }, 0)
+
+    commit('setCartTotal', total)
   },
 
   addProductToCart({ dispatch }, product) {

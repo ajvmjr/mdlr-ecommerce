@@ -20,18 +20,31 @@
         />
       </div>
       <div v-else class="cart__msg">Nenhum item encontrado.</div>
+      <div class="cart__footer">
+        <div class="cart__footer__info">
+          <p>Subtotal</p>
+          <span>$ {{ cartTotal }}</span>
+        </div>
+        <AppButton
+          text="Prosseguir para o pagamento"
+          height="44px"
+          width="100%"
+        />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+
 import CartItem from './CartItem';
+import AppButton from './AppButton';
 
 export default {
-  components: { CartItem },
+  components: { CartItem, AppButton },
   computed: {
-    ...mapGetters(['cart']),
+    ...mapGetters(['cart', 'cartTotal']),
 
     hasItems() {
       return this.cart && this.cart.length > 0;
@@ -99,16 +112,53 @@ export default {
     width: 100%;
   }
 
+  &__footer {
+    border-top: 1px solid $main-border-color;
+    bottom: 0;
+    position: absolute;
+    width: 30%;
+
+    &__info {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      padding: 2rem 1.5rem;
+
+      p,
+      span {
+        color: $font-color-black;
+        font-family: $main-font-family;
+        font-size: 1.4rem;
+      }
+
+      span {
+        font-weight: bold;
+      }
+    }
+  }
+
   @media screen and (max-width: $xl) {
     width: 40%;
+
+    &__footer {
+      width: 40%;
+    }
   }
 
   @media screen and (max-width: $md) {
     width: 62%;
+
+    &__footer {
+      width: 62%;
+    }
   }
 
   @media screen and (max-width: $sm) {
     width: 85%;
+
+    &__footer {
+      width: 85%;
+    }
   }
 
   @media screen and (max-width: $xs) {
@@ -125,6 +175,10 @@ export default {
       span {
         font-size: 2.8rem;
       }
+    }
+
+    &__footer {
+      width: 100%;
     }
   }
 }
