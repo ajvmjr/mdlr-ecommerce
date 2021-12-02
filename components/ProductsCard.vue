@@ -2,11 +2,6 @@
   <router-link :to="productPath">
     <div class="card">
       <div class="card__image">
-        <!-- <img
-          src="../assets/images/hero.jpg"
-          alt="product image"
-          loading="lazy"
-        /> -->
         <img :src="productImage" alt="product image" loading="lazy" />
       </div>
       <div class="card__info">

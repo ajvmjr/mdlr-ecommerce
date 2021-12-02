@@ -21,9 +21,21 @@
       </ul>
     </nav>
     <div class="footer__social-medias">
-      <img src="../assets/images/facebook.svg" alt="facebook social media" />
-      <img src="../assets/images/twitter.svg" alt="twitter social media" />
-      <img src="../assets/images/instagram.svg" alt="instagram social media" />
+      <img
+        src="../assets/images/facebook.svg"
+        alt="facebook social media"
+        loading="lazy"
+      />
+      <img
+        src="../assets/images/twitter.svg"
+        alt="twitter social media"
+        loading="lazy"
+      />
+      <img
+        src="../assets/images/instagram.svg"
+        alt="instagram social media"
+        loading="lazy"
+      />
     </div>
   </footer>
 </template>

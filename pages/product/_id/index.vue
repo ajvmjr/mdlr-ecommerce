@@ -1,7 +1,7 @@
 <template>
   <div class="product">
     <div class="product__thumbnail">
-      <img :src="productImage" alt="product image" />
+      <img :src="productImage" alt="product image" loading="lazy" />
     </div>
     <div class="product__info">
       <h2 class="product__info__title">{{ product.name }}</h2>
