@@ -1,4 +1,4 @@
-import { getStorage } from "@/utils/storage"
+import { getStorage, setStorage } from "@/utils/storage"
 
 export default {
   openCart({ commit }) {
@@ -12,6 +12,18 @@ export default {
   getCart({ commit }) {
     const cartItems = getStorage('products')
     commit('setCart', cartItems)
+  },
+
+  removeItemFromCart({ dispatch, rootState }, itemId) {
+    const cart = rootState.cart;
+
+    const index = cart.findIndex(product => product.id === itemId);
+
+    cart.splice(index, 1);
+
+    setStorage('products', cart);
+
+    dispatch('getCart')
   },
 
   async nuxtServerInit({ commit }, context) {

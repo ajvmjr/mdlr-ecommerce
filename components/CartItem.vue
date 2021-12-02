@@ -9,7 +9,7 @@
       </h2>
       <p class="cart-item__info__price">$ {{ price }}</p>
       <p class="cart-item__info__size">Size: {{ size }}</p>
-      <button class="cart-item__info__btn">
+      <button class="cart-item__info__btn" @click="removeItemFromCart">
         <span>Remover</span>
       </button>
     </div>
@@ -45,9 +45,16 @@ export default {
       required: true,
     },
   },
+
   computed: {
     productImage() {
       return `${process.env.BASE_URL}files/${this.image}`;
+    },
+  },
+
+  methods: {
+    removeItemFromCart() {
+      this.$store.dispatch('removeItemFromCart', this.id);
     },
   },
 };
