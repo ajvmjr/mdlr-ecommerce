@@ -66,5 +66,14 @@ button {
   &:hover {
     transform: scale(1.05);
   }
+
+  &:disabled {
+    cursor: default;
+    opacity: 0.5;
+
+    &:hover {
+      transform: scale(1);
+    }
+  }
 }
 </style>
