@@ -29,8 +29,6 @@
 </template>
 
 <script>
-import { getStorage, setStorage } from '@/utils/storage';
-
 import AppButton from '@/components/AppButton';
 import ProductsSize from '@/components/ProductsSize';
 import ProductsQuantity from '@/components/ProductsQuantity';
@@ -67,21 +65,7 @@ export default {
         quantity: this.quantity,
       };
 
-      const cartExists = getStorage('products');
-      let cartProducts = [];
-
-      if (!cartExists) {
-        cartProducts = [product];
-        setStorage('products', cartProducts);
-
-        return;
-      }
-
-      cartProducts = getStorage('products');
-
-      cartProducts.push(product);
-
-      setStorage('products', cartProducts);
+      this.$store.dispatch('addProductToCart', product);
     },
   },
 };

@@ -23,7 +23,7 @@
     <div class="header__actions">
       <button class="header__actions header__actions--cart" @click="openCart">
         <span class="material-icons icon"> shopping_cart </span>
-        <div class="header__actions--cart__counter">0</div>
+        <div class="header__actions--cart__counter">{{ cart.length }}</div>
       </button>
       <button class="header__actions header__actions--menu">
         <span class="material-icons icon"> sort </span>
@@ -37,7 +37,7 @@ import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters(['showCart']),
+    ...mapGetters(['showCart', 'cart']),
   },
   methods: {
     openCart() {

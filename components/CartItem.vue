@@ -9,7 +9,7 @@
       </h2>
       <p class="cart-item__info__price">$ {{ price }}</p>
       <p class="cart-item__info__size">Size: {{ size }}</p>
-      <button class="cart-item__info__btn" @click="removeItemFromCart">
+      <button class="cart-item__info__btn" @click="removeProductFromCart">
         <span>Remover</span>
       </button>
     </div>
@@ -53,8 +53,8 @@ export default {
   },
 
   methods: {
-    removeItemFromCart() {
-      this.$store.dispatch('removeItemFromCart', this.id);
+    removeProductFromCart() {
+      this.$store.dispatch('removeProductFromCart', this.id);
     },
   },
 };
