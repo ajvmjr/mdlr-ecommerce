@@ -35,7 +35,7 @@ export default {
   },
 
   watch: {
-    email() {
+    value() {
       this.$emit('input', this.value);
     },
   },
