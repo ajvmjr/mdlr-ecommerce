@@ -3,8 +3,22 @@
     <div class="checkout__heading">
       <h1>Checkout</h1>
     </div>
+    <div class="checkout__content">
+      <section class="checkout__content__order-info">
+        <CheckoutCustomer />
+      </section>
+      <section class="checkout__content__summary"></section>
+    </div>
   </div>
 </template>
+
+<script>
+import CheckoutCustomer from '@/components/CheckoutCustomer';
+
+export default {
+  components: { CheckoutCustomer },
+};
+</script>
 
 <style lang="scss" scoped>
 .checkout {
@@ -23,6 +37,13 @@
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+
+    padding: 0 2rem;
+  }
+
   @media screen and (min-width: $sm) {
     &__heading {
       h1 {
@@ -35,6 +56,12 @@
     &__heading {
       h1 {
         font-size: 5.5rem;
+      }
+    }
+
+    &__content {
+      &__order-info {
+        max-width: 60%;
       }
     }
   }
