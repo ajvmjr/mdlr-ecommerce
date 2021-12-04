@@ -20,7 +20,7 @@
         />
       </div>
       <div v-else class="cart__msg">Nenhum item encontrado.</div>
-      <div class="cart__footer">
+      <div v-if="hasItems" class="cart__footer">
         <div class="cart__footer__info">
           <p>Subtotal</p>
           <span>$ {{ cartTotal }}</span>
