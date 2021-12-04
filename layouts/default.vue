@@ -8,7 +8,7 @@
       <TheMenu v-if="showMenu" />
     </transition>
     <Nuxt />
-    <TheSubscribe />
+    <TheSubscribe v-if="routeIsNotCheckout" />
     <TheFooter />
   </div>
 </template>
@@ -24,8 +24,13 @@ import TheFooter from '@/components/TheFooter';
 
 export default {
   components: { TheHeader, TheCart, TheSubscribe, TheFooter, TheMenu },
+
   computed: {
     ...mapGetters(['showCart', 'showMenu']),
+
+    routeIsNotCheckout() {
+      return this.$route.name !== 'checkout';
+    },
   },
 };
 </script>
