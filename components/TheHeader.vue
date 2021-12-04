@@ -25,7 +25,7 @@
         <span class="material-icons icon"> shopping_cart </span>
         <div class="header__actions--cart__counter">{{ cart.length }}</div>
       </button>
-      <button class="header__actions header__actions--menu">
+      <button class="header__actions header__actions--menu" @click="toggleMenu">
         <span class="material-icons icon"> sort </span>
       </button>
     </div>
@@ -42,6 +42,10 @@ export default {
   methods: {
     openCart() {
       this.$store.dispatch('openCart');
+    },
+
+    toggleMenu() {
+      this.$store.dispatch('toggleMenu');
     },
   },
 };
@@ -61,7 +65,7 @@ a.nuxt-link-active {
   justify-content: space-between;
   padding: 0 2.4rem;
   position: sticky;
-  z-index: 0;
+  top: 0;
 
   &__company {
     align-items: center;

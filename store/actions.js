@@ -9,6 +9,12 @@ export default {
     commit('setShowCart', false)
   },
 
+  toggleMenu({ commit, rootState }) {
+    const status = !rootState.showMenu;
+
+    commit('setShowMenu', status)
+  },
+
   getCart({ commit, dispatch }) {
     const cartItems = getStorage('products')
     commit('setCart', cartItems)

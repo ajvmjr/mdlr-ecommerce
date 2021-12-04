@@ -3,6 +3,10 @@ export default {
     state.showCart = status;
   },
 
+  setShowMenu(state, status) {
+    state.showMenu = status;
+  },
+
   setProducts(state, products) {
     state.products = products;
   },
