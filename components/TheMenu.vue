@@ -27,7 +27,7 @@ a {
   font-family: $main-font-family;
   left: 0;
   position: sticky;
-  top: 6vh;
+  top: 60px;
   width: 100%;
   z-index: 2;
 
