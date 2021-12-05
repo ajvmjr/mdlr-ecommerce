@@ -6,6 +6,7 @@
     <div class="checkout__content">
       <section class="checkout__content__order-info">
         <CheckoutCustomer />
+        <CheckoutShipping />
       </section>
       <section class="checkout__content__summary"></section>
     </div>
@@ -13,10 +14,11 @@
 </template>
 
 <script>
-import CheckoutCustomer from '@/components/CheckoutCustomer';
+import CheckoutCustomer from '@/components/checkout/CheckoutCustomer';
+import CheckoutShipping from '@/components/checkout/CheckoutShipping';
 
 export default {
-  components: { CheckoutCustomer },
+  components: { CheckoutCustomer, CheckoutShipping },
 };
 </script>
 

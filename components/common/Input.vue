@@ -63,6 +63,7 @@ export default {
     background: $main-white;
     border: 1px solid $main-border-color;
     height: 3.8rem;
+    margin-bottom: 1rem;
     outline: none;
     padding: 0 1rem;
     width: 100%;
