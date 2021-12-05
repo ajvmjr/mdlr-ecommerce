@@ -1,7 +1,7 @@
 <template>
   <div class="input-wrapper">
     <label :for="name">{{ label }} {{ required ? '*' : '' }}</label>
-    <input v-model="value" :type="type" :name="name" />
+    <input :id="name" v-model="value" :type="type" :name="name" />
   </div>
 </template>
 
