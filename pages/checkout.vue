@@ -10,7 +10,11 @@
         </CheckoutSection>
 
         <CheckoutSection title="Endereço de envio">
-          <CheckoutShipping />
+          <CheckoutShippingAddress />
+        </CheckoutSection>
+
+        <CheckoutSection title="Frete">
+          <CheckoutShippingMethod />
         </CheckoutSection>
       </section>
       <section class="checkout__content__summary"></section>
@@ -20,11 +24,17 @@
 
 <script>
 import CheckoutCustomer from '@/components/checkout/CheckoutCustomer';
-import CheckoutShipping from '@/components/checkout/CheckoutShipping';
+import CheckoutShippingAddress from '@/components/checkout/CheckoutShippingAddress';
 import CheckoutSection from '@/components/checkout/CheckoutSection';
+import CheckoutShippingMethod from '@/components/checkout/CheckoutShippingMethod';
 
 export default {
-  components: { CheckoutCustomer, CheckoutShipping, CheckoutSection },
+  components: {
+    CheckoutCustomer,
+    CheckoutShippingAddress,
+    CheckoutSection,
+    CheckoutShippingMethod,
+  },
 };
 </script>
 
