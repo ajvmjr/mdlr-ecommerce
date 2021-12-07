@@ -7,7 +7,7 @@
       required
     />
     <Input v-model="form.address" label="Endereço" name="address" required />
-    <div class="wrapper__content__zip">
+    <div class="zip">
       <Input v-model="form.city" label="Cidade" name="city" required />
       <Input v-model="form.state" label="Estado" name="state" />
       <Input v-model="form.cep" label="Cep" name="cep" required />
@@ -36,3 +36,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.zip {
+  @media screen and (min-width: $xl) {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+}
+</style>
