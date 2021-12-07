@@ -16,6 +16,10 @@
         <CheckoutSection title="Frete">
           <CheckoutShippingMethod />
         </CheckoutSection>
+
+        <CheckoutSection title="Informações de pagamento">
+          <CheckoutPaymentInfo />
+        </CheckoutSection>
       </section>
       <section class="checkout__content__summary"></section>
     </div>
@@ -27,6 +31,7 @@ import CheckoutCustomer from '@/components/checkout/CheckoutCustomer';
 import CheckoutShippingAddress from '@/components/checkout/CheckoutShippingAddress';
 import CheckoutSection from '@/components/checkout/CheckoutSection';
 import CheckoutShippingMethod from '@/components/checkout/CheckoutShippingMethod';
+import CheckoutPaymentInfo from '@/components/checkout/CheckoutPaymentInfo';
 
 export default {
   components: {
@@ -34,6 +39,7 @@ export default {
     CheckoutShippingAddress,
     CheckoutSection,
     CheckoutShippingMethod,
+    CheckoutPaymentInfo,
   },
 };
 </script>

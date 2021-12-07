@@ -46,6 +46,7 @@ export default {
 .input-wrapper {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
   label,
   input {
