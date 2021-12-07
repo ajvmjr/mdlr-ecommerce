@@ -26,10 +26,11 @@
           <span>$ {{ cartTotal }}</span>
         </div>
         <AppButton
+          :has-hover="false"
           text="Prosseguir para o pagamento"
           height="44px"
           width="100%"
-          :has-hover="false"
+          @click="pushToCheckout"
         />
       </div>
     </div>
@@ -66,6 +67,9 @@ export default {
     },
     getCartItems() {
       this.$store.dispatch('getCart');
+    },
+    pushToCheckout() {
+      this.$router.push('/checkout');
     },
   },
 };

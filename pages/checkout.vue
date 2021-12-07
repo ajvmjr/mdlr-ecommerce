@@ -20,6 +20,10 @@
         <CheckoutSection title="Informações de pagamento">
           <CheckoutPaymentInfo />
         </CheckoutSection>
+
+        <CheckoutSection title="Produtos">
+          <CheckoutProducts />
+        </CheckoutSection>
       </section>
       <section class="checkout__content__summary">
         <CheckoutSection title="Sumário do pedido">
@@ -37,6 +41,7 @@ import CheckoutSection from '@/components/checkout/CheckoutSection';
 import CheckoutShippingMethod from '@/components/checkout/CheckoutShippingMethod';
 import CheckoutPaymentInfo from '@/components/checkout/CheckoutPaymentInfo';
 import CheckoutSummary from '@/components/checkout/CheckoutSummary';
+import CheckoutProducts from '@/components/checkout/CheckoutProducts';
 
 export default {
   components: {
@@ -46,6 +51,7 @@ export default {
     CheckoutShippingMethod,
     CheckoutPaymentInfo,
     CheckoutSummary,
+    CheckoutProducts,
   },
 };
 </script>

@@ -1,12 +1,12 @@
 <template>
-  <form class="wrapper">
+  <div class="wrapper">
     <div class="wrapper__heading">
       <h2>{{ title }}</h2>
     </div>
     <div class="wrapper__content">
       <slot></slot>
     </div>
-  </form>
+  </div>
 </template>
 
 <script>
