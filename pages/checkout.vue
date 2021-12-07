@@ -5,8 +5,13 @@
     </div>
     <div class="checkout__content">
       <section class="checkout__content__order-info">
-        <CheckoutCustomer />
-        <CheckoutShipping />
+        <CheckoutSection title="Informações do comprador">
+          <CheckoutCustomer />
+        </CheckoutSection>
+
+        <CheckoutSection title="Endereço de envio">
+          <CheckoutShipping />
+        </CheckoutSection>
       </section>
       <section class="checkout__content__summary"></section>
     </div>
@@ -16,9 +21,10 @@
 <script>
 import CheckoutCustomer from '@/components/checkout/CheckoutCustomer';
 import CheckoutShipping from '@/components/checkout/CheckoutShipping';
+import CheckoutSection from '@/components/checkout/CheckoutSection';
 
 export default {
-  components: { CheckoutCustomer, CheckoutShipping },
+  components: { CheckoutCustomer, CheckoutShipping, CheckoutSection },
 };
 </script>
 

@@ -1,12 +1,5 @@
 <template>
-  <form class="wrapper">
-    <div class="wrapper__heading">
-      <h2>Informações do Comprador</h2>
-    </div>
-    <div class="wrapper__content">
-      <Input v-model="email" label="Email" name="email" required />
-    </div>
-  </form>
+  <Input v-model="email" label="Email" name="email" required />
 </template>
 
 <script>
@@ -22,26 +15,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss" scoped>
-.wrapper {
-  border: 1px solid $main-border-color;
-  margin: 1.5rem 0;
-  width: 100%;
-
-  &__heading {
-    border-bottom: 1px solid $main-border-color;
-    padding: 1rem 2rem;
-
-    h2 {
-      font-size: 1.6rem;
-      font-family: $main-font-family;
-      font-weight: bold;
-    }
-  }
-
-  &__content {
-    padding: 1rem 2rem;
-  }
-}
-</style>
