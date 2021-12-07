@@ -13,7 +13,12 @@
       <span class="value">$ 148</span>
     </div>
     <div class="summary__action">
-      <AppButton text="Realizar pedido" height="40px" width="100%" />
+      <AppButton
+        text="Realizar pedido"
+        height="40px"
+        width="100%"
+        :has-hover="false"
+      />
     </div>
   </div>
 </template>
