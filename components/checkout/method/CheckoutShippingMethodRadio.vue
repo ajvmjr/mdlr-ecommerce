@@ -7,7 +7,9 @@
       type="radio"
       @click="$emit('click', value)"
     />
-    <label :for="name" class="wrapper__label">{{ label }}</label>
+    <label :for="name" class="wrapper__label"
+      >{{ label }} - {{ price }}.00</label
+    >
     <p class="wrapper__description">{{ description }}</p>
   </div>
 </template>
@@ -28,6 +30,10 @@ export default {
       required: true,
     },
     name: {
+      type: String,
+      required: true,
+    },
+    price: {
       type: String,
       required: true,
     },

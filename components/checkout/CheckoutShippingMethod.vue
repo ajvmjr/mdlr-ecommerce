@@ -5,6 +5,7 @@
       name="freight"
       value="fixed"
       description="Taxa padrão para todos os envios."
+      price="12"
       @click="selected = $event"
     />
     <CheckoutShippingMethodRadio
@@ -12,6 +13,7 @@
       name="freight"
       value="acceletared"
       description="Envio acelerado para receber seu produto em dois ou três dias."
+      price="20"
       @click="selected = $event"
     />
     <CheckoutShippingMethodRadio
@@ -19,6 +21,7 @@
       name="freight"
       value="overnight"
       description="Uma opção mais cara para receber seu pedido no próximo dia."
+      price="35"
       @click="selected = $event"
     />
   </div>

@@ -53,6 +53,10 @@ export default {
     CheckoutSummary,
     CheckoutProducts,
   },
+
+  mounted() {
+    this.$store.dispatch('getCart');
+  },
 };
 </script>
 
