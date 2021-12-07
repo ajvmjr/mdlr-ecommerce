@@ -90,8 +90,18 @@ export default {
     }
 
     &__content {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 1rem;
+
       &__order-info {
         max-width: 60%;
+        width: 100%;
+      }
+
+      &__summary {
+        max-width: 40%;
+        width: 100%;
       }
     }
   }
