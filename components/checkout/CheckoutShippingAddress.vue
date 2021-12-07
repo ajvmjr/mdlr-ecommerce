@@ -3,7 +3,7 @@
     <div class="zip">
       <Input v-model="form.cep" label="Cep" name="cep" required />
       <Input v-model="form.city" label="Cidade" name="city" required />
-      <Input v-model="form.state" label="Estado" name="state" />
+      <Input v-model="form.state" label="Estado" name="state" required />
     </div>
     <Input v-model="form.address" label="Endereço" name="address" required />
     <Input v-model="form.country" label="País" name="country" required />
