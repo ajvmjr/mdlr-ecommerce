@@ -1,17 +1,11 @@
 <template>
   <div>
-    <Input
-      v-model="form.fullname"
-      label="Nome completo"
-      name="fullname"
-      required
-    />
-    <Input v-model="form.address" label="Endereço" name="address" required />
     <div class="zip">
+      <Input v-model="form.cep" label="Cep" name="cep" required />
       <Input v-model="form.city" label="Cidade" name="city" required />
       <Input v-model="form.state" label="Estado" name="state" />
-      <Input v-model="form.cep" label="Cep" name="cep" required />
     </div>
+    <Input v-model="form.address" label="Endereço" name="address" required />
     <Input v-model="form.country" label="País" name="country" required />
   </div>
 </template>
@@ -25,7 +19,6 @@ export default {
   data() {
     return {
       form: {
-        fullname: '',
         street: '',
         city: '',
         state: '',
