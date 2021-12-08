@@ -7,6 +7,7 @@
         label="Cep"
         name="cep"
         required
+        @input="debounce"
       />
       <Input
         v-model="form.city"
@@ -41,6 +42,7 @@
 </template>
 
 <script>
+import { debounce } from 'lodash';
 import Input from '@/components/common/Input';
 
 export default {
@@ -70,10 +72,14 @@ export default {
         shippingAddressIsValid: this.fieldsAreValid,
       });
     },
+  },
 
-    async 'form.cep'() {
-      if (!this.form.cep) return;
+  created() {
+    this.debounce = debounce(this.getAddressByZipCode, 800);
+  },
 
+  methods: {
+    async getAddressByZipCode() {
       const cepConsult = await this.$store.dispatch(
         'getAddressByZipCode',
         this.form.cep
