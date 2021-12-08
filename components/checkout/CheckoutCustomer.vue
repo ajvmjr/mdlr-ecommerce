@@ -1,5 +1,5 @@
 <template>
-  <Input v-model="email" label="Email" name="email" required />
+  <Input v-model="email" label="Email" name="email" type="email" required />
 </template>
 
 <script>
