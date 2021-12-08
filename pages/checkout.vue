@@ -86,6 +86,7 @@ export default {
     width: 100%;
 
     h1 {
+      color: $font-color-black;
       font-size: 3.2rem;
       font-family: $main-font-family;
       font-weight: 700;
