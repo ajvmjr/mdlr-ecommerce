@@ -73,6 +73,11 @@ export default {
     })
   },
 
+  async getAddressByZipCode({}, cep) {
+    const data = await this.$axios.$get(`/cep?cep=${cep}`)
+    return data
+  },
+
   async nuxtServerInit({ commit }, context) {
     try {
       const data = await this.$axios.$get('/products')

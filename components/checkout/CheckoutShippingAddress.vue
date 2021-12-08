@@ -1,12 +1,42 @@
 <template>
   <div>
     <div class="zip">
-      <Input v-model="form.cep" label="Cep" name="cep" required />
-      <Input v-model="form.city" label="Cidade" name="city" required />
-      <Input v-model="form.state" label="Estado" name="state" required />
+      <Input
+        v-model="form.cep"
+        :value="form.cep"
+        label="Cep"
+        name="cep"
+        required
+      />
+      <Input
+        v-model="form.city"
+        :value="form.city"
+        label="Cidade"
+        name="city"
+        required
+      />
+      <Input
+        v-model="form.state"
+        :value="form.state"
+        label="Estado"
+        name="state"
+        required
+      />
     </div>
-    <Input v-model="form.street" label="Endereço" name="address" required />
-    <Input v-model="form.country" label="País" name="country" required />
+    <Input
+      v-model="form.street"
+      :value="form.street"
+      label="Endereço"
+      name="address"
+      required
+    />
+    <Input
+      v-model="form.country"
+      :value="form.country"
+      label="País"
+      name="country"
+      required
+    />
   </div>
 </template>
 
@@ -39,6 +69,17 @@ export default {
       this.$store.dispatch('setCheckoutFormValidity', {
         shippingAddressIsValid: this.fieldsAreValid,
       });
+    },
+
+    async 'form.cep'() {
+      if (!this.form.cep) return;
+
+      const cepConsult = await this.$store.dispatch(
+        'getAddressByZipCode',
+        this.form.cep
+      );
+
+      this.form = { ...this.form, ...cepConsult };
     },
   },
 };

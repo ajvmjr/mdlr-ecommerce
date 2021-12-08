@@ -1,7 +1,13 @@
 <template>
   <div class="input-wrapper">
     <label :for="name">{{ label }} {{ required ? '*' : '' }}</label>
-    <input :id="name" v-model="value" :type="type" :name="name" />
+    <input
+      :id="name"
+      v-model="inputValue"
+      :type="type"
+      :name="name"
+      :value="value"
+    />
   </div>
 </template>
 
@@ -26,17 +32,26 @@ export default {
       required: false,
       default: 'text',
     },
+    value: {
+      type: String,
+      required: false,
+      default: '',
+    },
   },
 
   data() {
     return {
-      value: '',
+      inputValue: '',
     };
   },
 
   watch: {
+    inputValue() {
+      this.$emit('input', this.inputValue);
+    },
+
     value() {
-      this.$emit('input', this.value);
+      this.inputValue = this.value;
     },
   },
 };

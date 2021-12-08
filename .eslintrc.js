@@ -17,6 +17,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
-    'no-useless-return': 'off'
+    'no-useless-return': 'off',
+    'no-empty-pattern': 'off'
   }
 }
