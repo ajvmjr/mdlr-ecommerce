@@ -4,4 +4,9 @@ export const state = () => ({
   products: [],
   cart: [],
   cartTotal: 0,
+  checkoutFormValidity: {
+    customerIsValid: false,
+    shippingAddressIsValid: false,
+    paymentInfoIsValid: false,
+  }
 })

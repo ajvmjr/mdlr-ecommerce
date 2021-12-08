@@ -14,10 +14,11 @@
     </div>
     <div class="summary__action">
       <AppButton
+        :has-hover="false"
+        :disabled="checkoutFormIsNotValid"
         text="Realizar pedido"
         height="40px"
         width="100%"
-        :has-hover="false"
       />
     </div>
   </div>
@@ -38,10 +39,14 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['cartTotal']),
+    ...mapGetters(['cartTotal', 'checkoutFormValidity']),
 
     total() {
       return Number(this.info.price) + Number(this.cartTotal);
+    },
+
+    checkoutFormIsNotValid() {
+      return Object.values(this.checkoutFormValidity).some((value) => !value);
     },
   },
 };

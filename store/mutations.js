@@ -18,4 +18,8 @@ export default {
   setCartTotal(state, total) {
     state.cartTotal = total;
   },
+
+  setCheckoutFormValidity(state, payload) {
+    state.checkoutFormValidity = payload
+  }
 }

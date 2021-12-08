@@ -28,12 +28,29 @@ import Input from '@/components/common/Input';
 
 export default {
   components: { Input },
+
   data() {
     return {
       cardNumber: '',
       expirationDate: '',
       securityCode: '',
     };
+  },
+
+  computed: {
+    fieldsAreValid() {
+      return Boolean(
+        this.cardNumber && this.expirationDate && this.securityCode
+      );
+    },
+  },
+
+  watch: {
+    fieldsAreValid() {
+      this.$store.dispatch('setCheckoutFormValidity', {
+        paymentInfoIsValid: this.fieldsAreValid,
+      });
+    },
   },
 };
 </script>

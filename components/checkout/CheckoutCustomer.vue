@@ -13,5 +13,19 @@ export default {
       email: '',
     };
   },
+
+  computed: {
+    fieldIsValid() {
+      return !!this.email;
+    },
+  },
+
+  watch: {
+    fieldIsValid() {
+      this.$store.dispatch('setCheckoutFormValidity', {
+        customerIsValid: this.fieldIsValid,
+      });
+    },
+  },
 };
 </script>

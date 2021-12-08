@@ -63,6 +63,16 @@ export default {
     dispatch('getCart')
   },
 
+  setCheckoutFormValidity({ commit, rootState }, newValidityValue) {
+    const [key, value] = Object.entries(newValidityValue).at(0);
+
+    const currentFormState = { ...rootState.checkoutFormValidity };
+    commit('setCheckoutFormValidity', {
+      ...currentFormState,
+      [key]: value,
+    })
+  },
+
   async nuxtServerInit({ commit }, context) {
     try {
       const data = await this.$axios.$get('/products')

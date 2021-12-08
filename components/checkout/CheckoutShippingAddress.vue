@@ -5,7 +5,7 @@
       <Input v-model="form.city" label="Cidade" name="city" required />
       <Input v-model="form.state" label="Estado" name="state" required />
     </div>
-    <Input v-model="form.address" label="Endereço" name="address" required />
+    <Input v-model="form.street" label="Endereço" name="address" required />
     <Input v-model="form.country" label="País" name="country" required />
   </div>
 </template>
@@ -26,6 +26,20 @@ export default {
         country: '',
       },
     };
+  },
+
+  computed: {
+    fieldsAreValid() {
+      return Object.values(this.form).every((value) => value);
+    },
+  },
+
+  watch: {
+    fieldsAreValid() {
+      this.$store.dispatch('setCheckoutFormValidity', {
+        shippingAddressIsValid: this.fieldsAreValid,
+      });
+    },
   },
 };
 </script>
