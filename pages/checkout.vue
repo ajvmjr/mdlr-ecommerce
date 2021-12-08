@@ -14,7 +14,7 @@
         </CheckoutSection>
 
         <CheckoutSection title="Frete">
-          <CheckoutShippingMethod />
+          <CheckoutShippingMethod @updateSummaryInfo="updateSummaryInfo" />
         </CheckoutSection>
 
         <CheckoutSection title="Informações de pagamento">
@@ -27,7 +27,7 @@
       </section>
       <section class="checkout__content__summary">
         <CheckoutSection title="Sumário do pedido">
-          <CheckoutSummary />
+          <CheckoutSummary :info="summaryInfo" />
         </CheckoutSection>
       </section>
     </div>
@@ -54,8 +54,23 @@ export default {
     CheckoutProducts,
   },
 
+  data() {
+    return {
+      summaryInfo: {
+        option: 'Taxa fixa',
+        price: '12',
+      },
+    };
+  },
+
   mounted() {
     this.$store.dispatch('getCart');
+  },
+
+  methods: {
+    updateSummaryInfo(info) {
+      this.summaryInfo = info;
+    },
   },
 };
 </script>

@@ -3,26 +3,27 @@
     <CheckoutShippingMethodRadio
       label="Taxa fixa"
       name="freight"
-      value="fixed"
+      value="Taxa Fixa"
       description="Taxa padrão para todos os envios."
       price="12"
-      @click="selected = $event"
+      checked
+      @click="updateSelected"
     />
     <CheckoutShippingMethodRadio
       label="Envio acelerado"
       name="freight"
-      value="acceletared"
+      value="Envio acelerado"
       description="Envio acelerado para receber seu produto em dois ou três dias."
       price="20"
-      @click="selected = $event"
+      @click="updateSelected"
     />
     <CheckoutShippingMethodRadio
       label="Envio noturno"
       name="freight"
-      value="overnight"
+      value="Envio noturno"
       description="Uma opção mais cara para receber seu pedido no próximo dia."
       price="35"
-      @click="selected = $event"
+      @click="updateSelected"
     />
   </div>
 </template>
@@ -35,8 +36,23 @@ export default {
 
   data() {
     return {
-      selected: 'A',
+      selected: {
+        option: 'Taxa fixa',
+        price: '12',
+      },
     };
+  },
+
+  watch: {
+    selected() {
+      this.$emit('updateSummaryInfo', this.selected);
+    },
+  },
+
+  methods: {
+    updateSelected(selected) {
+      this.selected = selected;
+    },
   },
 };
 </script>

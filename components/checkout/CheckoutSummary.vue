@@ -2,15 +2,15 @@
   <div class="summary">
     <div class="summary__details">
       <p class="description">Subtotal</p>
-      <span class="value">$ 138</span>
+      <span class="value">$ {{ cartTotal }}</span>
     </div>
     <div class="summary__details">
-      <p class="description">Frete X</p>
-      <span class="value">$ 10</span>
+      <p class="description">{{ info.option }}</p>
+      <span class="value">$ {{ info.price }}</span>
     </div>
     <div class="summary__details bold">
       <p class="description">Total</p>
-      <span class="value">$ 148</span>
+      <span class="value">$ {{ total }}</span>
     </div>
     <div class="summary__action">
       <AppButton
@@ -24,10 +24,26 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import AppButton from '@/components/AppButton';
 
 export default {
   components: { AppButton },
+
+  props: {
+    info: {
+      type: Object,
+      required: true,
+    },
+  },
+
+  computed: {
+    ...mapGetters(['cartTotal']),
+
+    total() {
+      return Number(this.info.price) + Number(this.cartTotal);
+    },
+  },
 };
 </script>
 

@@ -3,9 +3,10 @@
     <input
       :name="name"
       :value="value"
+      :checked="checked"
       class="wrapper__input"
       type="radio"
-      @click="$emit('click', value)"
+      @click="$emit('click', { option: value, price })"
     />
     <label :for="name" class="wrapper__label"
       >{{ label }} - {{ price }}.00</label
@@ -36,6 +37,11 @@ export default {
     price: {
       type: String,
       required: true,
+    },
+    checked: {
+      type: Boolean,
+      required: false,
+      default: false,
     },
   },
 };
