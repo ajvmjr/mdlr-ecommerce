@@ -48,6 +48,10 @@ a {
       }
     }
   }
+
+  @media screen and (min-width: $xl) {
+    display: none;
+  }
 }
 
 @keyframes moveBottom {
