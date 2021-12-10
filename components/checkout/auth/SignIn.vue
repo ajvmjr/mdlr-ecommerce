@@ -57,8 +57,17 @@ export default {
   },
 
   methods: {
-    onSubmit() {
-      console.log('submit');
+    async onSubmit() {
+      const { email, password } = this;
+
+      try {
+        await this.$store.dispatch('signin', {
+          email,
+          password,
+        });
+      } catch (error) {
+        console.error(error);
+      }
     },
   },
 };

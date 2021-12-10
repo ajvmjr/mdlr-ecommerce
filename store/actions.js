@@ -1,4 +1,4 @@
-import { getStorage, setStorage } from "@/utils/storage"
+import { getStorage, setStorage, removeStorage } from "@/utils/storage"
 
 export default {
   openCart({ commit }) {
@@ -82,6 +82,21 @@ export default {
       });
     } catch (error) {
       console.error(error);
+      throw error;
+    }
+  },
+
+  async signin({ commit }, { email, password }) {
+    try {
+      const data = await this.$axios.$post('auth', {
+        email,
+        password
+      });
+
+      commit('setToken', data.token)
+      setStorage('token', data.token)
+    } catch (error) {
+      removeStorage('token');
       throw error;
     }
   },

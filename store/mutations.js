@@ -21,5 +21,9 @@ export default {
 
   setCheckoutFormValidity(state, payload) {
     state.checkoutFormValidity = payload
+  },
+
+  setToken(state, token) {
+    state.token = token;
   }
 }
