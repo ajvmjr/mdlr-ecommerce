@@ -2,7 +2,6 @@
   <div class="checkout">
     <div class="checkout__heading">
       <h1>Checkout</h1>
-      {{ $store.getters.isAuthenticated }}
     </div>
     <div class="checkout__content">
       <section class="checkout__content__order-info">

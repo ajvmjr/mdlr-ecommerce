@@ -101,6 +101,8 @@ export default {
         product_id: id
       })
     })
+
+    removeStorage('cart');
   },
 
   async signup({}, { name, email, password }) {
