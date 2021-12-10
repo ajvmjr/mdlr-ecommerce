@@ -65,6 +65,7 @@ export default {
 
   mounted() {
     this.$store.dispatch('getCart');
+    this.$store.dispatch('closeCart');
   },
 
   methods: {
