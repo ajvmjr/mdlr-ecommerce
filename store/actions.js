@@ -78,18 +78,29 @@ export default {
     removeStorage('token');
   },
 
-  initAuth({ commit, dispatch }) {
-    const token = getStorage('token');
+  initAuth({ commit, dispatch }, req) {
 
-    if(!token) {
-      dispatch('logout');
-      return;
+    if(!req) {
+      const token = getStorage('token');
+
+      if(!token) {
+        dispatch('logout');
+        return;
+      }
+
+      commit('setToken', token)
+      setStorage('token', token)
     }
+  },
 
-    commit('setToken', token)
-    setStorage('token', token)
+  async placeOrder({ rootState }) {
+    const cart = rootState.cart;
 
-    return;
+    await cart.forEach(async ({ id }) => {
+      await this.$axios.$post('/orders', {
+        product_id: id
+      })
+    })
   },
 
   async signup({}, { name, email, password }) {

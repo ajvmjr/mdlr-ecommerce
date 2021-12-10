@@ -40,7 +40,7 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['cartTotal', 'checkoutFormValidity']),
+    ...mapGetters(['cartTotal', 'checkoutFormValidity', 'isAuthenticated']),
 
     total() {
       return Number(this.info.price) + Number(this.cartTotal);
@@ -52,7 +52,14 @@ export default {
   },
 
   methods: {
-    placeOrder() {
+    async placeOrder() {
+      if (!this.isAuthenticated) {
+        this.$router.push('/auth');
+        return;
+      }
+
+      await this.$store.dispatch('placeOrder');
+
       this.$router.push('/orders');
     },
   },
