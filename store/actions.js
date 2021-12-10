@@ -96,9 +96,10 @@ export default {
   async placeOrder({ rootState }) {
     const cart = rootState.cart;
 
-    await cart.forEach(async ({ id }) => {
+    await cart.forEach(async ({ id, quantity }) => {
       await this.$axios.$post('/orders', {
-        product_id: id
+        product_id: id,
+        quantity
       })
     })
 

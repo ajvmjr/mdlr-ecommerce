@@ -12,10 +12,10 @@
         <nuxt-link to="/">
           <li class="header__navigation__list__list-item">Categorias</li>
         </nuxt-link>
-        <nuxt-link to="/">
-          <li class="header__navigation__list__list-item">Contato</li>
+        <nuxt-link to="/orders">
+          <li class="header__navigation__list__list-item">Meus Pedidos</li>
         </nuxt-link>
-        <nuxt-link to="/">
+        <nuxt-link to="/auth">
           <li class="header__navigation__list__list-item">Login</li>
         </nuxt-link>
       </ul>
@@ -52,7 +52,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-a.nuxt-link-active {
+a.nuxt-link-active,
+a {
   all: unset;
 }
 .header {
