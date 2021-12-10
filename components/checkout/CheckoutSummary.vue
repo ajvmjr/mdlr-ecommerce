@@ -19,6 +19,7 @@
         text="Realizar pedido"
         height="40px"
         width="100%"
+        @click="placeOrder"
       />
     </div>
   </div>
@@ -26,6 +27,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import { getStorage } from '@/utils/storage';
 import AppButton from '@/components/AppButton';
 
 export default {
@@ -47,6 +49,16 @@ export default {
 
     checkoutFormIsNotValid() {
       return Object.values(this.checkoutFormValidity).some((value) => !value);
+    },
+  },
+
+  methods: {
+    placeOrder() {
+      const token = getStorage('token');
+
+      if (!token) {
+        this.$router.push('/auth');
+      }
     },
   },
 };

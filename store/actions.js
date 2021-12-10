@@ -73,6 +73,19 @@ export default {
     })
   },
 
+  async signup({}, { name, email, password }) {
+    try {
+      await this.$axios.$post('users', {
+        name,
+        email,
+        password
+      });
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  },
+
   async getAddressByZipCode({}, cep) {
     const data = await this.$axios.$get(`/cep?cep=${cep}`)
     return data

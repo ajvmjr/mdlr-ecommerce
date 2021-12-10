@@ -8,7 +8,7 @@
       <TheMenu v-if="showMenu" />
     </transition>
     <Nuxt />
-    <TheSubscribe v-if="routeIsNotCheckout" />
+    <TheSubscribe v-if="routeIsNotCheckout && routeIsNotAuth" />
     <TheFooter />
   </div>
 </template>
@@ -30,6 +30,10 @@ export default {
 
     routeIsNotCheckout() {
       return this.$route.name !== 'checkout';
+    },
+
+    routeIsNotAuth() {
+      return this.$route.name !== 'auth';
     },
   },
 };
