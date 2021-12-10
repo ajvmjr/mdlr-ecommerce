@@ -20,6 +20,10 @@ export default {
     };
   },
 
+  mounted() {
+    this.$store.dispatch('getCart');
+  },
+
   methods: {
     toggleSignUp() {
       this.isSignUp = !this.isSignUp;

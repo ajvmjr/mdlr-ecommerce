@@ -27,7 +27,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import { getStorage } from '@/utils/storage';
 import AppButton from '@/components/AppButton';
 
 export default {
@@ -54,11 +53,7 @@ export default {
 
   methods: {
     placeOrder() {
-      const token = getStorage('token');
-
-      if (!token) {
-        this.$router.push('/auth');
-      }
+      this.$router.push('/orders');
     },
   },
 };

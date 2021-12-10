@@ -73,6 +73,25 @@ export default {
     })
   },
 
+  logout({ commit }) {
+    commit('setToken', null);
+    removeStorage('token');
+  },
+
+  initAuth({ commit, dispatch }) {
+    const token = getStorage('token');
+
+    if(!token) {
+      dispatch('logout');
+      return;
+    }
+
+    commit('setToken', token)
+    setStorage('token', token)
+
+    return;
+  },
+
   async signup({}, { name, email, password }) {
     try {
       await this.$axios.$post('users', {
@@ -86,7 +105,7 @@ export default {
     }
   },
 
-  async signin({ commit }, { email, password }) {
+  async signin({ commit, dispatch }, { email, password }) {
     try {
       const data = await this.$axios.$post('auth', {
         email,
@@ -96,7 +115,7 @@ export default {
       commit('setToken', data.token)
       setStorage('token', data.token)
     } catch (error) {
-      removeStorage('token');
+      dispatch('logout');
       throw error;
     }
   },

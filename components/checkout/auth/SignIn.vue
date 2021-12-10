@@ -65,6 +65,8 @@ export default {
           email,
           password,
         });
+
+        this.$router.push('/orders');
       } catch (error) {
         console.error(error);
       }
