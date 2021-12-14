@@ -13,10 +13,20 @@
           <li class="header__navigation__list__list-item">Categorias</li>
         </nuxt-link>
         <nuxt-link to="/orders">
-          <li class="header__navigation__list__list-item">Meus Pedidos</li>
+          <li
+            v-if="isAuthenticated"
+            class="header__navigation__list__list-item"
+          >
+            Meus Pedidos
+          </li>
         </nuxt-link>
         <nuxt-link to="/auth">
-          <li class="header__navigation__list__list-item">Login</li>
+          <li
+            v-if="!isAuthenticated"
+            class="header__navigation__list__list-item"
+          >
+            Login
+          </li>
         </nuxt-link>
       </ul>
     </nav>
@@ -37,8 +47,9 @@ import { mapGetters } from 'vuex';
 
 export default {
   computed: {
-    ...mapGetters(['showCart', 'cart']),
+    ...mapGetters(['showCart', 'cart', 'isAuthenticated']),
   },
+
   methods: {
     openCart() {
       this.$store.dispatch('openCart');

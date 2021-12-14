@@ -8,14 +8,26 @@
         <li class="header__navigation__list__list-item">Categorias</li>
       </nuxt-link>
       <nuxt-link to="/orders">
-        <li class="header__navigation__list__list-item">Meus Pedidos</li>
+        <li v-if="isAuthenticated" class="header__navigation__list__list-item">
+          Meus Pedidos
+        </li>
       </nuxt-link>
-      <nuxt-link to="/auth">
+      <nuxt-link v-if="!isAuthenticated" to="/auth">
         <li class="header__navigation__list__list-item">Login</li>
       </nuxt-link>
     </ul>
   </div>
 </template>
+
+<script>
+import { mapGetters } from 'vuex';
+
+export default {
+  computed: {
+    ...mapGetters(['isAuthenticated']),
+  },
+};
+</script>
 
 <style lang="scss" scoped>
 a {
