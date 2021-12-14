@@ -7,8 +7,8 @@
     <p>
       Somos um varejista de estilo de vida dedicado a inspirar clientes por meio
       de uma combinação única de produto, criatividade e compreensão cultural.
-      Fundada em 1970 em um pequeno espaço em frente à Universidade da
-      Pensilvânia.
+      Fundada em 1970 em um pequeno espaço em frente à Universidade de São
+      Paulo.
     </p>
     <p>
       A <b>Modular</b> agora opera mais de 200 lojas nos Estados Unidos, Canadá
