@@ -93,16 +93,14 @@ export default {
     }
   },
 
-  async placeOrder({ rootState }) {
+  async placeOrder({ commit, rootState }) {
     const cart = rootState.cart;
 
-    await cart.forEach(async ({ id, quantity }) => {
-      await this.$axios.$post('/orders', {
-        product_id: id,
-        quantity
-      })
-    })
+    await this.$axios.$post('orders', {
+      products: cart.map(({ id, quantity }) => ({ id, quantity }))
+    });
 
+    commit('setCart', [])
     removeStorage('cart');
   },
 
@@ -126,8 +124,8 @@ export default {
         password
       });
 
-      commit('setToken', data.token)
-      setStorage('token', data.token)
+      commit('setToken', data.token);
+      setStorage('token', data.token);
     } catch (error) {
       dispatch('logout');
       throw error;
@@ -135,16 +133,16 @@ export default {
   },
 
   async getAddressByZipCode({}, cep) {
-    const data = await this.$axios.$get(`/cep?cep=${cep}`)
-    return data
+    const data = await this.$axios.$get(`/cep?cep=${cep}`);
+    return data;
   },
 
   async nuxtServerInit({ commit }, context) {
     try {
-      const data = await this.$axios.$get('/products')
-      commit('setProducts', data)
+      const data = await this.$axios.$get('/products');
+      commit('setProducts', data);
     } catch (e) {
-      context.error(e)
+      context.error(e);
     }
   },
 }
