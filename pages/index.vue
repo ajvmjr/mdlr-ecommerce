@@ -18,7 +18,7 @@ export default {
     Products,
   },
 
-  middleware: ['initAuth', 'auth'],
+  middleware: ['initAuth'],
 
   mounted() {
     this.$store.dispatch('getCart');

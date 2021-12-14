@@ -10,8 +10,8 @@ export default {
   },
 
   toggleMenu({ commit, rootState }, payload) {
-    if (payload) {
-      commit('setShotMenu', payload);
+    if (payload === false) {
+      commit('setShowMenu', payload);
       return;
     }
 
