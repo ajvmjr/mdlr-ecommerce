@@ -68,6 +68,7 @@ export default {
   mounted() {
     this.$store.dispatch('getCart');
     this.$store.dispatch('closeCart');
+    this.$store.dispatch('toggleMenu', false);
   },
 
   methods: {
