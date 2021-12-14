@@ -1,15 +1,16 @@
 import { getStorage, setStorage, removeStorage } from "@/utils/storage"
 
 export default {
-  openCart({ commit }) {
+  openCart({ commit, dispatch }) {
     commit('setShowCart', true);
+    dispatch('toggleMenu', false);
   },
 
   closeCart({ commit }) {
     commit('setShowCart', false);
   },
 
-  toggleMenu({ commit, rootState }, payload) {
+  toggleMenu({ commit, dispatch, rootState }, payload) {
     if (payload === false) {
       commit('setShowMenu', payload);
       return;
@@ -18,6 +19,10 @@ export default {
     const status = !rootState.showMenu;
 
     commit('setShowMenu', status);
+
+    if (status) {
+      dispatch('closeCart');
+    }
   },
 
   getCart({ commit, dispatch }) {
