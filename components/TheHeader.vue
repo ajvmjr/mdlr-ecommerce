@@ -20,12 +20,12 @@
             Meus Pedidos
           </li>
         </nuxt-link>
-        <nuxt-link to="/auth">
-          <li
-            v-if="!isAuthenticated"
-            class="header__navigation__list__list-item"
-          >
-            Login
+        <nuxt-link v-if="!isAuthenticated" to="/auth">
+          <li class="header__navigation__list__list-item">Login</li>
+        </nuxt-link>
+        <nuxt-link v-else to="/">
+          <li class="header__navigation__list__list-item" @click="logout">
+            Sair
           </li>
         </nuxt-link>
       </ul>
@@ -57,6 +57,10 @@ export default {
 
     toggleMenu() {
       this.$store.dispatch('toggleMenu');
+    },
+
+    logout() {
+      this.$store.dispatch('logout');
     },
   },
 };

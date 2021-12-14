@@ -15,6 +15,11 @@
       <nuxt-link v-if="!isAuthenticated" to="/auth">
         <li class="header__navigation__list__list-item">Login</li>
       </nuxt-link>
+      <nuxt-link v-else to="/">
+        <li class="header__navigation__list__list-item" @click="logout">
+          Sair
+        </li>
+      </nuxt-link>
     </ul>
   </div>
 </template>
@@ -25,6 +30,12 @@ import { mapGetters } from 'vuex';
 export default {
   computed: {
     ...mapGetters(['isAuthenticated']),
+  },
+
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+    },
   },
 };
 </script>
