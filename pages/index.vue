@@ -21,6 +21,7 @@ export default {
   middleware: ['initAuth'],
 
   mounted() {
+    this.$store.dispatch('initAuth');
     this.$store.dispatch('getCart');
     this.$store.dispatch('toggleMenu', false);
   },
