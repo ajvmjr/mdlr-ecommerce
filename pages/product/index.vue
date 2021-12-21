@@ -77,6 +77,7 @@ export default {
 
   mounted() {
     this.$store.dispatch('initAuth');
+    this.$store.dispatch('toggleMenu', false);
   },
 
   methods: {
