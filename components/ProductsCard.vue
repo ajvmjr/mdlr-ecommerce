@@ -67,6 +67,7 @@ a {
 
     img {
       max-width: 100%;
+      object-fit: cover;
     }
   }
 
@@ -89,6 +90,15 @@ a {
   }
 
   @media screen and (min-width: $md) {
+    &__image {
+      img {
+        height: 71.8rem;
+        max-width: 100%;
+        object-fit: cover;
+        width: 100%;
+      }
+    }
+
     &__info {
       min-height: 14rem;
     }

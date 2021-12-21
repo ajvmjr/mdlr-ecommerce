@@ -9,8 +9,8 @@
         <nuxt-link to="/">
           <li class="header__navigation__list__list-item">Home</li>
         </nuxt-link>
-        <nuxt-link to="/">
-          <li class="header__navigation__list__list-item">Categorias</li>
+        <nuxt-link to="/product">
+          <li class="header__navigation__list__list-item">Produtos</li>
         </nuxt-link>
         <nuxt-link to="/orders">
           <li

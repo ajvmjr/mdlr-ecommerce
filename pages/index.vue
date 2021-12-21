@@ -2,7 +2,7 @@
   <div>
     <TheLatestCollections />
     <TheAbout />
-    <Products />
+    <Products :max="4" />
   </div>
 </template>
 

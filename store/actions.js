@@ -103,6 +103,13 @@ export default {
     }
   },
 
+  async ordenateProducts({ commit }, { price, categoryId }) {
+    const data = await this.$axios.$get('/products', {
+      params: { price, categoryId }
+    });
+    commit('setProducts', data);
+  },
+
   async placeOrder({ commit, rootState }) {
     const cart = rootState.cart;
 

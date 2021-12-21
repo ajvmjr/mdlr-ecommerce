@@ -1,7 +1,7 @@
 <template>
   <div class="products">
     <ProductsCard
-      v-for="product in products"
+      v-for="product in productsWithMaxLength"
       :id="product.id"
       :key="product.id"
       :title="product.name"
@@ -17,8 +17,25 @@ import ProductsCard from '@/components/ProductsCard';
 
 export default {
   components: { ProductsCard },
+
+  props: {
+    max: {
+      type: [String, Number],
+      required: false,
+      default: 'all',
+    },
+  },
+
   computed: {
     ...mapGetters(['products']),
+
+    productsWithMaxLength() {
+      const { max, products } = this;
+
+      if (max === 'all') return products;
+
+      return products.slice(0, max);
+    },
   },
 };
 </script>
