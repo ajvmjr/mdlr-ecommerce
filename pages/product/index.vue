@@ -21,11 +21,13 @@
         </option>
       </select>
     </div>
-    <Products />
+    <Products v-if="hasProducts" />
+    <h2 v-else class="wrapper__not-found">Nenhum produto encontrado :(</h2>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
 import Products from '@/components/Products';
 
 export default {
@@ -49,6 +51,14 @@ export default {
         category: '',
       },
     };
+  },
+
+  computed: {
+    ...mapGetters(['products']),
+
+    hasProducts() {
+      return this.products.length > 0;
+    },
   },
 
   watch: {
@@ -105,6 +115,12 @@ export default {
     }
   }
 
+  &__not-found {
+    text-align: center;
+    font-size: 1.4rem;
+    margin: 1rem;
+  }
+
   @media screen and (min-width: $sm) {
     &__actions {
       flex-direction: row;
@@ -122,6 +138,10 @@ export default {
       &__select {
         width: 25%;
       }
+    }
+
+    &__not-found {
+      font-size: 1.6rem;
     }
   }
 
