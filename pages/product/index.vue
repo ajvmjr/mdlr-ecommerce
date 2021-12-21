@@ -152,6 +152,7 @@ export default {
       justify-content: flex-end;
 
       &__select {
+        cursor: pointer;
         width: 25%;
       }
     }
