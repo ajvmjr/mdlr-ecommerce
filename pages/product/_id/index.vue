@@ -7,11 +7,7 @@
       <h2 class="product__info__title">{{ product.name }}</h2>
       <span class="product__info__price">{{ product.price }}</span>
       <p class="product__info__description">
-        Easy pull on + go short in an allover vertical stripe pattern. Soft
-        textured cotton is cut in a silhouette that hits above the knee with a
-        split hem, featuring an elastic waist + adjustable exterior drawstring
-        for a comfortable fit. Complete with front slip pockets and back patch
-        pockets. Get them only at Urban Outfitters.
+        {{ product.description }}
       </p>
       <div class="product__size-quantity">
         <ProductsSize v-model="chosenSize" />
