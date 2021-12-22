@@ -26,13 +26,15 @@ export default {
   },
 
   getCart({ commit, dispatch }) {
-    const cartItems = getStorage('products')
-    commit('setCart', cartItems)
-    dispatch('calculateCartTotal')
+    const cartItems = getStorage('products');
+    commit('setCart', cartItems);
+    dispatch('calculateCartTotal');
   },
 
   calculateCartTotal({ commit, rootState }) {
     const cart = rootState.cart;
+
+    if (!cart) return 0;
 
     const total = cart.reduce((acc, product) => {
       return acc + (Number(product.price) * Number(product.quantity))
@@ -118,7 +120,7 @@ export default {
     });
 
     commit('setCart', [])
-    removeStorage('cart');
+    setStorage('products', [])
   },
 
   async signup({}, { name, email, password }) {
