@@ -92,17 +92,13 @@ export default {
     async onSubmit() {
       const { name, email, password } = this.form;
 
-      try {
-        await this.$store.dispatch('signup', {
-          name,
-          email,
-          password,
-        });
+      await this.$store.dispatch('signup', {
+        name,
+        email,
+        password,
+      });
 
-        this.toggleSignUp();
-      } catch (error) {
-        console.error(error);
-      }
+      this.toggleSignUp();
     },
   },
 };

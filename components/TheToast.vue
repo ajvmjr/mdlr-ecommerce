@@ -17,6 +17,7 @@ export default {
 
 <style lang="scss" scoped>
 .snackbar {
+  animation: show 0.3s;
   background: #333;
   border-radius: 3px;
   bottom: 5px;
@@ -30,5 +31,15 @@ export default {
   transform: translateX(-50%);
   width: 35rem;
   z-index: 2;
+}
+
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
 }
 </style>

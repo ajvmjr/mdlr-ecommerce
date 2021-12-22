@@ -44,7 +44,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      alert('here!');
+      this.$store.dispatch('setSnackbar', 'Inscrição realizada com sucesso.');
     },
   },
 };

@@ -136,16 +136,11 @@ export default {
   },
 
   async signup({}, { name, email, password }) {
-    try {
-      await this.$axios.$post('users', {
-        name,
-        email,
-        password
-      });
-    } catch (error) {
-      console.error(error);
-      throw error;
-    }
+    await this.$axios.$post('users', {
+      name,
+      email,
+      password
+    });
   },
 
   async signin({ commit, dispatch }, { email, password }) {
