@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import SignUp from '~/components/checkout/auth/SignUp';
-import SignIn from '~/components/checkout/auth/SignIn';
+import SignUp from '~/components/auth/SignUp';
+import SignIn from '~/components/auth/SignIn';
 
 export default {
   components: { SignUp, SignIn },
