@@ -25,5 +25,9 @@ export default {
 
   setToken(state, token) {
     state.token = token;
+  },
+
+  setSnackbar(state, snackbarCfg) {
+    state.snackbar = { ...snackbarCfg };
   }
 }

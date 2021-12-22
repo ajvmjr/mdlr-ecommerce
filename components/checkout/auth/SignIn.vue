@@ -68,7 +68,7 @@ export default {
 
         this.$router.push('/orders');
       } catch (error) {
-        console.error(error);
+        this.$store.dispatch('setSnackbar', 'Usuário ou senha incorretos.');
       }
     },
   },

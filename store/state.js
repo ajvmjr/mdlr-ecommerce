@@ -5,6 +5,10 @@ export const state = () => ({
   cart: [],
   cartTotal: 0,
   token: null,
+  snackbar: {
+    show: false,
+    message: '',
+  },
   checkoutFormValidity: {
     customerIsValid: false,
     shippingAddressIsValid: false,

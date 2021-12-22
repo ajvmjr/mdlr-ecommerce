@@ -10,6 +10,7 @@
     <Nuxt />
     <TheSubscribe v-if="routeIsNotCheckout && routeIsNotAuth" />
     <TheFooter />
+    <TheToast v-if="snackbar.show" :message="snackbar.message" />
   </div>
 </template>
 
@@ -21,12 +22,20 @@ import TheCart from '@/components/TheCart';
 import TheMenu from '@/components/TheMenu';
 import TheSubscribe from '@/components/TheSubscribe';
 import TheFooter from '@/components/TheFooter';
+import TheToast from '@/components/TheToast';
 
 export default {
-  components: { TheHeader, TheCart, TheSubscribe, TheFooter, TheMenu },
+  components: {
+    TheHeader,
+    TheCart,
+    TheSubscribe,
+    TheFooter,
+    TheMenu,
+    TheToast,
+  },
 
   computed: {
-    ...mapGetters(['showCart', 'showMenu']),
+    ...mapGetters(['showCart', 'showMenu', 'snackbar']),
 
     routeIsNotCheckout() {
       return this.$route.name !== 'checkout';

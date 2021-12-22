@@ -1,6 +1,18 @@
 import { getStorage, setStorage, removeStorage } from "@/utils/storage"
 
 export default {
+  setSnackbar({ commit }, message) {
+    setTimeout(() => commit('setSnackbar', {
+      show: false,
+      message: '',
+    }), 3000);
+
+    commit('setSnackbar', {
+      show: true,
+      message,
+    });
+  },
+
   openCart({ commit, dispatch }) {
     commit('setShowCart', true);
     dispatch('toggleMenu', false);
