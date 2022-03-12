@@ -16,7 +16,14 @@ export default {
 
   data() {
     return {
+      title: 'Autenticação MDLR.',
       isSignUp: true,
+    };
+  },
+
+  head() {
+    return {
+      title: this.title,
     };
   },
 

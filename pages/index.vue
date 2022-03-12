@@ -20,6 +20,23 @@ export default {
 
   middleware: ['initAuth'],
 
+  data() {
+    return {
+      title: 'Modular E-commerce.',
+    };
+  },
+
+  head() {
+    return {
+      title: this.title,
+      meta: {
+        hid: 'Home page',
+        name: 'Home page',
+        content: 'Página principal do E-commerce MDLR.',
+      },
+    };
+  },
+
   mounted() {
     this.$store.dispatch('initAuth');
     this.$store.dispatch('getCart');
